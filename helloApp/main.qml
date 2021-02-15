@@ -4,9 +4,16 @@ ApplicationWindow {
     visible: true
     width: 400
     height: 600
+    x: screen.desktopAvailableWidth - width - 12
+    y: screen.desktopAvailableHeight - height - 48
     title: "HelloApp"
 
+    flags: Qt.FramelessWindowHint | Qt.Window
+
+
     property string currTime: "00:00:00"
+    property QtObject backend
+
 
     Rectangle {
         anchors.fill: parent
@@ -30,6 +37,13 @@ ApplicationWindow {
                 font.pixelSize: 50
                 color: "white"
             }
+        }
+        Connections {
+            target: backend
+
+            function onUpdated(msg) {
+                currTime = msg;
+             }
         }
     }
 }
