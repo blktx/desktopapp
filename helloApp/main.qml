@@ -5,6 +5,9 @@ ApplicationWindow {
     width: 400
     height: 600
     title: "HelloApp"
+
+    property string currTime: "00:00:00"
+
     Rectangle {
         anchors.fill: parent
         Image {
@@ -23,7 +26,7 @@ ApplicationWindow {
                     left: parent.left
                     leftMargin: 12
                 }
-                text: "16:38:33"
+                text: currTime
                 font.pixelSize: 50
                 color: "white"
             }
